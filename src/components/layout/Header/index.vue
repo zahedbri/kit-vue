@@ -154,6 +154,8 @@ export default {
     if (mode === 'dark') {
       document.querySelector('body').classList.add('kit__dark')
       window.less.modifyVars(AntDesignDarkTheme)
+    } else {
+      window.less.modifyVars(AntDesignLightTheme)
     }
 
     // init primary color
