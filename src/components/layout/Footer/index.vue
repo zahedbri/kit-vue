@@ -1,0 +1,10 @@
+<template>
+  <div class="col-lg-12">
+    <footer class="mt-5 mb-5">
+      <p>
+        Clean UI KIT Pro - Best Solution for Your Next Big App!
+        <br />&copy; 2020 - Mediatec Software
+      </p>
+    </footer>
+  </div>
+</template>
