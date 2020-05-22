@@ -3,15 +3,6 @@
     <div class="container-fluid" style="max-width: 1440px;">
       <a-tooltip placement="left">
         <template slot="title">
-          <span>Switch Dark / Light Theme</span>
-        </template>
-        <div :class="$style.switch" @click="() => switchDarkTheme()">
-          <i class="fe fe-moon" :class="$style.on"></i>
-          <i class="fe fe-sun" :class="$style.off"></i>
-        </div>
-      </a-tooltip>
-      <a-tooltip placement="left">
-        <template slot="title">
           <span>Set Primary Color</span>
         </template>
         <div :class="{[$style.color]: true, [$style.reset]: reset}">
@@ -31,30 +22,25 @@
         <div class="row">
           <div class="col-xl-12">
             <div :class="$style.topbar">
-              <a :class="$style.logo" class="mr-md-5 mr-auto" href="widgets-general.html">
-                <div :class="$style.logo__pic">
-                  <i />
-                  <i />
+              <div :class="$style.logoContainer">
+                <div :class="$style.logo">
+                  <img src="resources/images/logo.svg" class="mr-2" alt="Clean UI" />
+                  <div :class="$style.name">Clean UI KIT Pro</div>
+                  <div :class="$style.descr">Vue</div>
                 </div>
-                <div>
-                  <span :class="$style.logo__main">Clean UI</span>
-                  <span :class="$style.logo__descr">Admin Template</span>
-                </div>
-                <div :class="$style.logo__kit">KIT</div>
-                <div :class="$style.logo__pro">PRO</div>
-              </a>
+              </div>
               <span class="mr-3">Switch to:</span>
               <a
                 class="d-none d-md-block mr-3 kit__utils__link"
-                href="https://cleanuitemplate.com/kit/react/"
+                href="https://kit-react.cleanuitemplate.com/"
               >React</a>
               <a
                 class="d-none d-md-block mr-3 kit__utils__link"
-                href="https://cleanuitemplate.com/kit/angular/"
+                href="https://kit-angular.cleanuitemplate.com/"
               >Angular</a>
               <a
                 class="d-none d-md-block mr-3 kit__utils__link"
-                href="https://www.cleanuitemplate.com/kit/html/versions/main/widgets-general.html"
+                href="https://kit-html.cleanuitemplate.com/versions/main/widgets-general.html"
               >Html</a>
               <a
                 class="mr-auto d-none d-md-block kit__utils__link"
@@ -82,8 +68,8 @@
                 :class="$style.button"
               >
                 <i class="fe fe-shopping-cart align-middle mr-2" />
-                Buy Pro 19$
-                <span>17+ Apps & Premium Support</span>
+                Buy Now Pro 19$
+                <span>Dark Theme & 17+ Apps!</span>
               </a>
             </div>
             <p class="pt-xl-2">
@@ -137,8 +123,6 @@
 import _ from 'lodash'
 import KitUserMenu from './UserMenu'
 import getMenuData from './config.js'
-import AntDesignDarkTheme from '@/components/kit-vendors/antd/themes/themeDark'
-import AntDesignLightTheme from '@/components/kit-vendors/antd/themes/themeLight'
 
 export default {
   name: 'main-menu',
@@ -152,10 +136,7 @@ export default {
     // init theme
     const mode = window.localStorage.getItem('kit.theme')
     if (mode === 'dark') {
-      document.querySelector('body').classList.add('kit__dark')
-      window.less.modifyVars(AntDesignDarkTheme)
-    } else {
-      window.less.modifyVars(AntDesignLightTheme)
+      document.querySelector('html').setAttribute('data-kit-theme', 'dark')
     }
 
     // init primary color
@@ -180,14 +161,14 @@ export default {
   },
   methods: {
     switchDarkTheme() {
-      if (document.querySelector('body').classList.contains('kit__dark')) {
-        document.querySelector('body').classList.remove('kit__dark')
-        window.localStorage.setItem('kit.theme', 'light')
-        window.less.modifyVars(AntDesignLightTheme)
-      } else {
-        document.querySelector('body').classList.add('kit__dark')
+      const theme = document.querySelector('html').getAttribute('data-kit-theme')
+      if (theme === 'dark') {
+        document.querySelector('html').setAttribute('data-kit-theme', 'default')
+        window.localStorage.setItem('kit.theme', 'default')
+      }
+      if (theme === 'default') {
+        document.querySelector('html').setAttribute('data-kit-theme', 'dark')
         window.localStorage.setItem('kit.theme', 'dark')
-        window.less.modifyVars(AntDesignDarkTheme)
       }
     },
     setActiveItems() {

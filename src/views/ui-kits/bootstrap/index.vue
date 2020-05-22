@@ -14,12 +14,12 @@
       <div class="card-header">
         <h5>
           <strong class="mr-3">{{example.name}}</strong>
-          <a href="https://bootstrap-vue.js.org/" target="_blank" class="btn btn-sm btn-light mr-3">
-            Official Documentation
+          <a :href="example.link" target="_blank" class="btn btn-sm btn-light mr-3">
+            Component Docs & Examples
             <i class="fe fe-corner-right-up"></i>
           </a>
-          <a :href="example.link" target="_blank" class="btn btn-sm btn-light">
-            More Examples
+          <a href="https://bootstrap-vue.js.org/" target="_blank" class="btn btn-sm btn-light mr-3">
+            Bootstrap Docs
             <i class="fe fe-corner-right-up"></i>
           </a>
         </h5>
@@ -75,8 +75,8 @@ import data from './data.json'
 
 export default {
   data: function () {
-    let selectedExampleIndex = 0
-    let example = data[selectedExampleIndex]
+    const selectedExampleIndex = 0
+    const example = data[selectedExampleIndex]
 
     return {
       data,

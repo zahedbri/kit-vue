@@ -1,3 +1,7 @@
+import 'ant-design-vue/lib/style/index.less' // antd core styles
+import './components/kit/vendors/antd/themes/default.less' // default theme antd components
+import './global.scss' // app & third-party component styles
+
 import Vue from 'vue'
 import VuePageTitle from 'vue-page-title'
 import App from './App.vue'
@@ -6,15 +10,13 @@ import VueLayers from 'vuelayers'
 import NProgress from 'vue-nprogress'
 import BootstrapVue from 'bootstrap-vue'
 import {
-  Avatar, TreeSelect, Rate, Breadcrumb, InputNumber, Steps, Message,
+  Avatar, TreeSelect, Rate, Breadcrumb, InputNumber, Steps,
   Upload, Button, Layout, Table, Icon, Progress, Radio, Dropdown, Menu,
   Comment, Carousel, Input, Calendar, Badge, Slider, Form, Tooltip, Select, Switch,
   Tag, Affix, Spin, Alert, Checkbox, Tabs, Pagination, notification, Drawer,
   Cascader, DatePicker, TimePicker, Divider, Anchor, AutoComplete, BackTop, Collapse, Card, List, Popover,
   Tree, Timeline, Row, Col, Transfer, Modal, message, Popconfirm, Skeleton,
 } from 'ant-design-vue'
-
-import './global.scss'
 
 Vue.use(BootstrapVue)
 Vue.use(VueLayers)
@@ -59,7 +61,6 @@ Vue.use(Checkbox)
 Vue.use(Tabs)
 Vue.use(Pagination)
 Vue.use(Upload)
-Vue.use(Message)
 Vue.use(Steps)
 Vue.use(InputNumber)
 Vue.use(Drawer)
@@ -77,7 +78,7 @@ Vue.prototype.$message = message
 
 Vue.use(NProgress)
 Vue.use(VuePageTitle, {
-  suffix: ' - Clean UI KIT Pro (Vue Edition)',
+  suffix: ' - Clean UI KIT (Vue Edition)',
   router,
 })
 

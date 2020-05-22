@@ -30,7 +30,7 @@ export default {
         'url',
         'tel',
         'date',
-        `time`,
+        'time',
         'range',
         'color',
       ],

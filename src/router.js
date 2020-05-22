@@ -102,13 +102,6 @@ const router = new Router({
       },
       component: () => import('./views/charts/c3'),
     },
-    {
-      path: '/charts/peity',
-      meta: {
-        title: 'Charts / Peity',
-      },
-      component: () => import('./views/charts/peity'),
-    },
     // Icons
     {
       path: '/icons/feather-icons',

@@ -15,21 +15,21 @@
         <h5>
           <strong class="mr-3">{{example.name}}</strong>
           <a
+            :href="example.link"
+            rel="noopener noreferrer"
+            target="_blank"
+            class="btn btn-sm btn-light mr-3"
+          >
+            Component Docs & Examples
+            <i class="fe fe-corner-right-up"></i>
+          </a>
+          <a
             href="https://antdv.com/docs/vue/introduce/"
             rel="noopener noreferrer"
             target="_blank"
             class="btn btn-sm btn-light mr-3"
           >
-            Official Documentation
-            <i class="fe fe-corner-right-up"></i>
-          </a>
-          <a
-            :href="example.link"
-            rel="noopener noreferrer"
-            target="_blank"
-            class="btn btn-sm btn-light"
-          >
-            More Examples
+            Ant Design Docs
             <i class="fe fe-corner-right-up"></i>
           </a>
         </h5>
@@ -100,8 +100,8 @@ import data from './data.json'
 
 export default {
   data: function () {
-    let selectedExampleIndex = 0
-    let example = data[selectedExampleIndex]
+    const selectedExampleIndex = 0
+    const example = data[selectedExampleIndex]
 
     return {
       data,
