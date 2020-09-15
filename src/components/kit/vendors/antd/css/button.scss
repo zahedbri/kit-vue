@@ -29,4 +29,12 @@
       color: $white;
     }
   }
+  &-primary,
+  &-danger {
+    &[disabled],
+    &[disabled]:hover {
+      background: $gray-2 !important;
+      border-color: $gray-2 !important;
+    }
+  }
 }
